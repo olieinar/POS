@@ -45,7 +45,11 @@ class Tagger:
         for key in list(checkpoint['model'].keys()):
             if key.startswith('encoders.bert.model.embeddings.position_ids'):
                 del checkpoint['model'][key]
-        self.model.load_state_dict(checkpoint)
+        try:
+            self.model.load_state_dict(checkpoint['model'])
+        except RuntimeError as e:
+            log.error(f"Error loading model: {e}")
+            raise e
 
     def _infer(self, ds: FieldedDataset, batch_size=16) -> FieldedDataset:
         # If we have a BERT model, we need to chunk
