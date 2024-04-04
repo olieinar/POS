@@ -379,7 +379,7 @@ def tag_large(data_in, output, device, batch_size, force_reload, force_download)
         device: cpu or cuda
     """
     model: Tagger = torch.hub.load(
-        repo_or_dir="cadia-lvl/POS",
+        repo_or_dir="olieinar/POS",
         model="tag_large",
         device=device,
         force_reload=force_reload,
@@ -408,7 +408,7 @@ def tag(data_in, output, device, batch_size, force_reload, force_download):
         device: cpu or cuda
     """
     model: Tagger = torch.hub.load(
-        repo_or_dir="cadia-lvl/POS",
+        repo_or_dir="olieinar/POS",
         model="tag",
         device=device,
         force_reload=force_reload,
@@ -437,7 +437,7 @@ def lemma(data_in, output, device, batch_size, force_reload, force_download):
         device: cpu or cuda
     """
     model: Tagger = torch.hub.load(
-        repo_or_dir="cadia-lvl/POS",
+        repo_or_dir="olieinar/POS",
         model="lemma",
         device=device,
         force_reload=force_reload,
